@@ -14,7 +14,7 @@ app.get("/addTwoNumber", (req, res) => {
     // Parsing query parameters
     const n1 = parseInt(req.query.n1);
     const n2 = parseInt(req.query.n2);
-
+    console.log(addTwoNumber(23, 76));
     // Calculating the result
     const result = addTwoNumber(n1, n2);
 
@@ -22,19 +22,24 @@ app.get("/addTwoNumber", (req, res) => {
     res.json({ statuscocde: 200, data: result });
 });
 
-// // Route to handle GET requests to "/"
-// app.get("/", (req, res) => {
-//     // HTML content to be sent as response
-//     const n1 = "<html><body><H1>HELLO THERE </H1></body></html>";
-    
-//     // Setting content type as HTML
-//     res.set('Content-Type', 'text/html');
-    
-//     // Sending the HTML response
-//     res.send(Buffer.from(n1));
-// });
 
-// Logging the result of adding 23 and 76 to the console
+
+app.get("/", (req, res) => {
+    var n1 = parseInt(req.query.n1);
+    var n2 = parseInt(req.query.n2);
+    var n3=console.log(addTwoNumber(23, 76));
+    
+    // HTML content to be sent as response
+    var w1 = `<html><body><H1>${n3}</H1></body></html>`;
+    
+    // Setting content type as HTML
+    res.set('Content-Type', 'text/html');
+    
+    // Sending the HTML response
+    res.send(Buffer.from(w1));
+});
+
+//adding 23 and 76 to the console
 console.log(addTwoNumber(23, 76));
 
 // Defining the port for the server to listen on
